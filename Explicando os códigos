@@ -1,0 +1,11 @@
+Aluno: Lucas Rodrigues Capiluppi
+
+1. O código fornecido é um exemplo de código Java que se conecta a um banco de dados PostgreSQL e cria uma tabela chamada "pessoa"
+
+2. Declaramos a variável SQLInserirDados, que contém a instrução SQL para inserir dados na tabela "pessoa". A instrução SQL especifica que queremos inserir o valor 23145712 na coluna "cpf" e o valor 'maria maria' na coluna "nome". Também declaramos a variável driver que contém o URL de conexão JDBC para o banco de dados PostgreSQL.
+
+3. É um exemplo em Java que realiza uma consulta no banco de dados PostgreSQL e imprime os resultados.
+
+4. É um exemplo em Java que realiza uma atualização de dados em uma tabela do banco de dados PostgreSQL.
+
+5. É um exemplo em Java que realiza uma exclusão de dados em uma tabela do banco de dados PostgreSQL
