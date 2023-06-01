@@ -1,0 +1,171 @@
+Aluno: Lucas Rodrigues Capiluppi 202202863157
+
+1.
+import java.sql.Connection;
+import java.sql.DriveManager;
+import java.sql.SQLException;
+public class Main
+{
+    public class BDexemplo {
+        public static void main(String[] args) {
+            String driver = "jdbc:postgresql://127.0.0.1:5432/DadosGerais";
+            try (Connection conn = DriveManager.getConnection(driver, "postgres", "password")) {
+                if (conn != null) {
+                    System.out.println("Connected to the database!");
+                }else{
+                    System.out.println("Failed to the make connection!");
+                }
+            } cacth (SQLException e) {
+                System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+            }
+        }
+        
+    }
+	public static void main(String[] args) {
+		String SQLcriarTabela = "CREATE TABLE pessoa ("+"cpf int, nome VARCHAR(60))";
+		String driver = "jdbc:postgresql://127.0.0.1:5432/DadosGerais";
+		Statement st = null;
+		try (Connection conn = DriveManager.getConnection(driver, "postgres", "password")) {
+		     if (conn != null) {
+                    System.out.println("Connected to the database!");
+                }else{
+                    System.out.println("Failed to the make connection!");
+                }
+		}
+		System.out.println("Criando Tabela, aguarde...");
+		st = conn.createStatement();
+		st.executeUpdate(SQLcriarTabela);
+		System.out.println("Tabela criada com sucesso!");
+		st.close();
+		conn.close();
+	}cacth (SQLException e) {
+                System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+            }
+}        
+}
+
+2.
+import java.sql.Connection;
+import java.sql.DriveManager;
+import java.sql.SQLException;
+public class Main
+{
+    
+	public static void main(String[] args) {
+		String SQLInserirDados = "INSERT INTO pessoa ("+"cpf ,nome)" + "VALUES(23145712,'maria maria')";
+		String driver = "jdbc:postgresql://127.0.0.1:5432/DadosGerais";
+		Statement st = null;
+		try (Connection conn = DriveManager.getConnection(driver, "postgres", "password")) {
+		     if (conn != null) {
+                    System.out.println("Connected to the database!");
+                }else{
+                    System.out.println("Failed to the make connection!");
+                }
+		}
+		System.out.println("Inserindo dados na Tabela...");
+		st = conn.createStatement();
+		st.executeUpdate(SQLInserirDados);
+		System.out.println("Dados inseridos!");
+		st.close();
+		conn.close();
+	}cacth (SQLException e) {
+                System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+            }
+}        
+}
+
+3.
+import java.sql.Connection;
+import java.sql.DriveManager;
+import java.sql.SQLException;
+public class Main
+{
+    
+	public static void main(String[] args) {
+		String SQLInserirDados = "Select *from pessoa";
+		String driver = "jdbc:postgresql://127.0.0.1:5432/DadosPessoais";
+		Statement st;
+		ResultSet result;
+		try (Connection conn = DriveManager.getConnection(driver, "postgres", "password")) {
+		     if (conn != null) {
+                    System.out.println("Connected to the database!");
+                }else{
+                    System.out.println("Failed to the make connection!");
+                }
+		}
+		System.out.println("Consultando dados na Tabela...");
+		st = conn.createStatement();
+		result = st.executeQuery(SQLConsultarDados);
+		while(result.next()) {
+		    System.out.println("----------------------");
+		    System.out.println("CPF: " + result.getString(1));
+		    System.out.println("Nome: " + result.getString(2));
+		}
+		result.close();
+		st.close();
+		conn.close();
+		
+}        
+}
+
+4.
+import java.sql.Connection;
+import java.sql.DriveManager;
+import java.sql.SQLException;
+public class Main
+{
+    
+	public static void main(String[] args) {
+		String SQLatualizarDados = "Update pessoa set nome = carlos";
+		String driver = "jdbc:postgresql://127.0.0.1:5432/DadosPessoais";
+		Statement st = null; 
+		try (Connection conn = DriveManager.getConnection(driver, "postgres", "password")) {
+		     if (conn != null) {
+                    System.out.println("Connected to the database!");
+                }else{
+                    System.out.println("Failed to the make connection!");
+                }
+		}
+		System.out.println("Atualizando dados na Tabela...");
+		st = conn.createStatement();
+		st.executeUpdate(SQLatualizarDados);
+		System.out.println("Dados atualizado");
+		st.close();
+		conn.close();
+	} cacth (SQLException e) {
+                System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+            }
+		
+}        
+}
+
+5.
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+public class Main
+{
+    
+	public static void main(String[] args) {
+		String SQLexcluirDados = "DELETE from pessoa";
+		String driver = "jdbc:postgresql://127.0.0.1:5432/DadosPessoais";
+		Statement st = null; 
+		try (Connection conn = DriverManager.getConnection(driver, "postgres", "password")) {
+		     if (conn != null) {
+                    System.out.println("Connected to the database!");
+                }else{
+                    System.out.println("Failed to the make connection!");
+                }
+		}
+		System.out.println("Excluindo dados na Tabela...");
+		st = conn.createStatement();
+		st.executeUpdate(SQLexcluirDados);
+		System.out.println("Dados Excluídos");
+		st.close();
+		conn.close();
+	} cacth (SQLException e) {
+                System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+            }
+		
+}        
+}
